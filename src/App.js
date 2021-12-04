@@ -7,6 +7,7 @@ const App = () => {
  return (
   <>
    <PracticeSvg />
+   <PracticeD3Lib />
   </>
  );
 };
