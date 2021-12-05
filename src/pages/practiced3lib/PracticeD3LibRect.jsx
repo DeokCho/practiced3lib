@@ -20,6 +20,7 @@ const PracticeD3LibRect = () => {
    .attr("y", (value, _) => 100 - value);
  }, [data]);
 
+ // 계정변경 테스트
  return (
   <>
    <svg ref={ref} />
