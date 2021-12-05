@@ -1,5 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-import * as d3 from "d3";
+import {
+ pie,
+ arc,
+ scaleOrdinal,
+ schemeCategory10,
+ format,
+ select,
+} from "d3";
 
 const width = 200;
 const height = 200;
@@ -14,13 +21,12 @@ const dataDefinition = [
  { name: "E", value: Math.random() * 100 },
 ];
 
-const createPie = d3.pie().value((d) => d.value);
-const createArc = d3
- .arc()
+const createPie = pie().value((d) => d.value);
+const createArc = arc()
  .innerRadius(innerRadius)
  .outerRadius(outerRadius);
-const colors = d3.scaleOrdinal(d3.schemeCategory10);
-const format = d3.format(".2f");
+const colors = scaleOrdinal(schemeCategory10);
+const setFormat = format(".2f");
 
 const PracticeD3LibPie = () => {
  const [data, setData] = useState({ name: "", value: 0 });
@@ -29,7 +35,7 @@ const PracticeD3LibPie = () => {
 
  useEffect(() => {
   setData(createPie(dataDefinition));
-  const svg = d3.select(svgRef.current);
+  const svg = select(svgRef.current);
   const svgWithData = svg.selectAll("g.arc").data(data);
 
   svgWithData.exit().remove();
@@ -61,7 +67,7 @@ const PracticeD3LibPie = () => {
    )
    .style("fill", "white")
    .style("font-size", 10)
-   .text((d) => format(d.value));
+   .text((d) => setFormat(d.value));
 
   svg
    .selectAll("pie")

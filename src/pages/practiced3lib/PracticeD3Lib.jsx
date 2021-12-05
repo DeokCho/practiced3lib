@@ -7,10 +7,21 @@ const PracticeD3Lib = () => {
  const [toggle, setToggle] = useState(false);
  const ref = useRef(null);
 
+ const makeData = (index) => {
+  const arr = [];
+  for (let i; i < index; i++) {
+   arr.push(Math.random() * 100);
+  }
+  return arr;
+ };
+
+ useEffect(() => {
+  makeData(5);
+ }, []);
+
  useEffect(() => {
   // selection 객체
   const svg = d3.select(ref.current);
-
   // 그래프 생성
   svg
    .selectAll("circle")
