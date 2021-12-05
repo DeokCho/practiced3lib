@@ -1,8 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
+const color = [
+ "skyblue",
+ "blue",
+ "lime",
+ "red",
+ "yellowgreen",
+ "violet",
+ "blueviolet",
+ "darkgreen",
+ "chocolate",
+ "yellow",
+];
+
 const PracticeD3LibRect = () => {
- const [data, setData] = useState([10, 20, 30, 40, 50]);
+ const [data, setData] = useState([
+  10, 20, 30, 40, 50, 60, 100, 70, 5, 35,
+ ]);
  const ref = useRef(null);
 
  useEffect(() => {
@@ -13,14 +28,18 @@ const PracticeD3LibRect = () => {
   svg
    .selectAll("rect")
    .data(data)
-   .join((enter) => enter.append("rect"))
+   //  .join((enter) => enter.append("rect"))
+   .enter()
+   .append("rect")
+   .attr("fill", (_, index) => color[index])
+   .attr("stroke", "grey")
+   .attr("stroke-width", 2)
    .attr("height", (value) => value)
-   .attr("width", 40)
-   .attr("x", (_, index) => 50 * index)
-   .attr("y", (value, _) => 100 - value);
+   .attr("width", 25)
+   .attr("x", (_, index) => 30 * index)
+   .attr("y", (value) => 100 - value);
  }, [data]);
 
- // 계정변경 테스트
  return (
   <>
    <svg ref={ref} />
