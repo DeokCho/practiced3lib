@@ -47,6 +47,13 @@ const PracticeD3Lib = () => {
    >
     filter circle r should gt 35
    </button>
+   <button
+    onClick={() => {
+     setData([10, 20, 30, 40, 50]);
+    }}
+   >
+    init data
+   </button>
   </>
  );
 };
