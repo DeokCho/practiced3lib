@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 
-const dateData = [
- { d: "2021-12-01", v: 93.24 },
- { d: "2021-12-02", v: 93 },
- { d: "2021-12-03", v: 95.54 },
-];
-
 const PracticeD3Lib = () => {
  const [data, setData] = useState([10, 20, 30, 40, 50]);
+ const [spareData, setSpareData] = useState([]);
+ const [toggle, setToggle] = useState(false);
  const ref = useRef(null);
 
  useEffect(() => {
@@ -27,7 +23,9 @@ const PracticeD3Lib = () => {
    .attr("r", (value) => value)
    .attr("cx", (value) => value * 2)
    .attr("cy", (value) => value * 2)
-   .attr("stroke", "red");
+   .attr("stroke", "blue")
+   .attr("stroke-width", 3)
+   .attr("fill", "green");
  }, [data]);
 
  return (
@@ -38,21 +36,37 @@ const PracticeD3Lib = () => {
      setData(data.map((el) => el + 5));
     }}
    >
-    increase + 5
+    +5
    </button>
    <button
     onClick={() => {
-     setData(data.filter((el) => el > 35));
+     setData(data.map((el) => el - 5));
     }}
    >
-    filter circle r should gt 35
+    -5
+   </button>
+   <button
+    style={{ backgroundColor: toggle ? "red" : "" }}
+    onClick={() => {
+     setToggle(!toggle);
+     if (toggle) {
+      setData(spareData);
+     } else {
+      setSpareData(data);
+      setData(data.filter((el) => el > 35));
+     }
+    }}
+   >
+    35 이상
    </button>
    <button
     onClick={() => {
+     setToggle(false);
      setData([10, 20, 30, 40, 50]);
+     setSpareData([]);
     }}
    >
-    init data
+    초기화
    </button>
   </>
  );

@@ -29,16 +29,42 @@ const PracticeD3LibLine = () => {
   <>
    <svg ref={svgRef} />
    <button
+    style={{
+     height: "30px",
+     width: "50px",
+    }}
     onClick={() => setData(data.map((value) => value + 5))}
    >
-    update data
+    +5
    </button>
    <button
+    style={{
+     height: "30px",
+     width: "50px",
+    }}
+    onClick={() => setData(data.map((value) => value - 5))}
+   >
+    -5
+   </button>
+   <button
+    style={{
+     height: "30px",
+     width: "150px",
+    }}
     onClick={() =>
-     setData(data.filter((value) => value < 35))
+     setData(data.filter((value) => value > 35))
     }
    >
-    filter data
+    35이하만 표시
+   </button>
+   <button
+    style={{
+     height: "30px",
+     width: "70px",
+    }}
+    onClick={() => setData([25, 30, 45, 60, 20, 65, 75])}
+   >
+    초기화
    </button>
   </>
  );
