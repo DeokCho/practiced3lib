@@ -35,9 +35,12 @@ const PracticeD3LibPie = () => {
 
  useEffect(() => {
   setData(createPie(dataDefinition));
-  const svg = select(svgRef.current);
-  const svgWithData = svg.selectAll("g.arc").data(data);
+ }, []);
 
+ useEffect(() => {
+  const svg = select(svgRef.current);
+
+  const svgWithData = svg.selectAll("g.arc").data(data);
   svgWithData.exit().remove();
 
   const groupWithUpdate = svgWithData

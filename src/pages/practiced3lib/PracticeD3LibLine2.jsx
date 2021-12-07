@@ -12,8 +12,8 @@ import {
 } from "d3";
 
 // 차트의 높이와 너비
-const width = 500;
-const height = 500;
+const width = 300;
+const height = 300;
 
 // 차트의 상하좌우의 여백
 const margin = { top: 40, right: 40, bottom: 40, left: 40 };
@@ -30,7 +30,6 @@ const makeRandomDate = () => {
  }
  return arr;
 };
-console.log(makeRandomDate());
 const data = makeRandomDate();
 
 const PracticeD3LibLine2 = () => {
@@ -146,7 +145,7 @@ const PracticeD3LibLine2 = () => {
  }, []);
 
  return (
-  <svg ref={ref} style={{ height: 500, width: 500 }} />
+  <svg ref={ref} style={{ height: 300, width: 300 }} />
  );
 };
 

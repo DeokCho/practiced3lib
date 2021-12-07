@@ -28,7 +28,7 @@ const PracticeD3LibLine = () => {
  return (
   <>
    <svg ref={svgRef} />
-   <button
+   {/* <button
     style={{
      height: "30px",
      width: "50px",
@@ -65,7 +65,7 @@ const PracticeD3LibLine = () => {
     onClick={() => setData([25, 30, 45, 60, 20, 65, 75])}
    >
     초기화
-   </button>
+   </button> */}
   </>
  );
 };

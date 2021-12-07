@@ -42,7 +42,7 @@ const PracticeD3Lib = () => {
  return (
   <>
    <svg ref={ref} />
-   <button
+   {/* <button
     onClick={() => {
      setData(data.map((el) => el + 5));
     }}
@@ -78,7 +78,7 @@ const PracticeD3Lib = () => {
     }}
    >
     초기화
-   </button>
+   </button> */}
   </>
  );
 };
