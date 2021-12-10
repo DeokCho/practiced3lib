@@ -6,8 +6,8 @@ import PracticeD3LibPie from "./pages/practiced3lib/PracticeD3LibPie";
 import PracticeD3LibRect from "./pages/practiced3lib/PracticeD3LibRect";
 import PracticeD3LibLine from "./pages/practiced3lib/PracticeD3LibLine";
 import PracticeD3LibLine2 from "./pages/practiced3lib/PracticeD3LibLine2";
+import PracticeD3LibLine3 from "./pages/practiced3lib/PracticeD3LibLine3";
 import PracticeD3LibMap from "./pages/practiced3lib/PracticeD3LibMap";
-import PracticeD3LibHoverGraph from "./pages/practiced3lib/PracticeD3LibHoverGraph";
 import "./pages/css/App.css";
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
      <PracticeD3LibMap />
     </span>
     <span>
-     <PracticeD3LibHoverGraph />
+     <PracticeD3LibLine3 />
     </span>
    </div>
   </>
